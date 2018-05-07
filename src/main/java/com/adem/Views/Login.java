@@ -28,6 +28,7 @@ public class Login implements Window {
                 "\nI want to ..." +
                 "\n1. Register" +
                 "\n2. Log in");
+
         int choice = input.getInt();
 
         if(choice == 1){

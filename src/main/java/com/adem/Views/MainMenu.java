@@ -1,5 +1,6 @@
 package com.adem.Views;
 
+import com.adem.App.InputUtil;
 import com.adem.Controller.Controller;
 import com.adem.Controller.Window;
 import com.adem.Entities.User;
@@ -17,10 +18,12 @@ public class MainMenu implements Window {
     private final int LOGIN_POSITION = 0;
     private UserDAO userDAO = new UserDAO();
 
+    private InputUtil input;
+
     public MainMenu(){}
 
     public void start() {
-
+        input = new InputUtil();
         this.user = Controller.getUser();
         while(true) {
             System.out.println("Welcome, " + user.getName());
@@ -33,11 +36,9 @@ public class MainMenu implements Window {
                     "\n6.Add contact to my contacts" +
                     "\n7.Remove contact from my contacts" +
                     "\n8.Log out");
-
-            Scanner input = new Scanner(System.in);
-            int choice = input.nextInt();
+            int choice = input.getInt();
             while (choice < 1 | choice > 8) {
-                choice = input.nextInt();
+                choice = input.getInt();
             }
 
             switch (choice) {
@@ -71,16 +72,15 @@ public class MainMenu implements Window {
     }
 
     private void addContactToGlobal() {
-        Scanner input = new Scanner(System.in);
 
         System.out.println("Name: ");
-        String name = input.nextLine();
+        String name = input.getString();
         System.out.println("Password: ");
-        String password = input.nextLine();
+        String password = input.getString();
         System.out.println("Phone number: ");
-        String phone = input.nextLine();
+        String phone = input.getString();
         System.out.println("E-mail: ");
-        String email = input.nextLine();
+        String email = input.getString();
 
         //Process phone to contain only numbers
         phone = processPhoneNumber(phone);
@@ -101,9 +101,8 @@ public class MainMenu implements Window {
     }
 
     private void editContactInGlobal(){
-        Scanner input = new Scanner(System.in);
         System.out.println("Enter the name of the user you want to edit: ");
-        String name = input.nextLine();
+        String name = input.getString();
         UserProperties temp = new UserProperties();
         temp.setName(name);
 
@@ -114,7 +113,7 @@ public class MainMenu implements Window {
                     "\n2. Phone" +
                     "\n3. Mail");
 
-            int choice = input.nextInt();
+            int choice = input.getInt();
             System.out.println("Enter new value: ");
             if(getNewProperty(choice, edit))
                 userDAO.updateUser(edit);
@@ -128,9 +127,8 @@ public class MainMenu implements Window {
 
 
     private void deleteContactFromGlobal(){
-        Scanner input = new Scanner(System.in);
         System.out.println("Enter the name of user you want to remove from global contacts: ");
-        String name = input.nextLine();
+        String name = input.getString();
 
         UserProperties temp = new UserProperties();
         temp.setName(name);
@@ -159,9 +157,8 @@ public class MainMenu implements Window {
     }
 
     private void addToPersonalContacts(){
-        Scanner input = new Scanner(System.in);
         System.out.println("Enter the name of contact you want to add to your personal contacts: ");
-        String name = input.nextLine();
+        String name = input.getString();
 
         UserProperties temp = new UserProperties();
         temp.setName(name);
@@ -171,9 +168,8 @@ public class MainMenu implements Window {
     }
 
     private void removeFromPersonalContacts(){
-        Scanner input = new Scanner(System.in);
         System.out.println("Enter the name of contact you want to remove from your personal contacts: ");
-        String name = input.nextLine();
+        String name = input.getString();
 
         UserProperties temp = new UserProperties();
         temp.setName(name);

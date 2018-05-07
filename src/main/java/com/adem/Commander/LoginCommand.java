@@ -16,7 +16,6 @@ public class LoginCommand implements Command{
 
     @Override
     public void execute() {
-        input.consume();
         System.out.println("Name: ");
         String username = input.getString();
         System.out.println("Password: ");
