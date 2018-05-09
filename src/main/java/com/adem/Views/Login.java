@@ -30,7 +30,7 @@ public class Login implements Window {
                 "\n2. Log in");
 
         int choice = input.getInt();
-
+        System.out.println("Loading...");
         if(choice == 1){
             invoker = new Invoker(new RegisterCommand());
             invoker.execute();
