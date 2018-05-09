@@ -6,8 +6,8 @@ import com.adem.Views.MainMenu;
 
 public class Controller {
 
-    private static Window WINDOWS[] = {new Login(), new MainMenu()};
-    private static User user;
+    private  Window WINDOWS[] = {new Login(), new MainMenu()};
+    private  User user;
 
     public Controller(){
 
@@ -17,15 +17,15 @@ public class Controller {
         WINDOWS[0].start();
     }
 
-    public static void start(int index){
+    public void start(int index){
         WINDOWS[index].start();
     }
 
-    public static User getUser() {
+    public User getUser() {
         return user;
     }
 
-    public static void setUser(User newUser) {
+    public void setUser(User newUser) {
         user = newUser;
     }
 }

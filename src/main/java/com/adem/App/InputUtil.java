@@ -23,7 +23,7 @@ public class InputUtil {
 			System.out.println("Fatal Error!");
 		}
 
-		return input.nextLine();
+		return str;
 	}
 
 	private boolean validWord(String str) {
