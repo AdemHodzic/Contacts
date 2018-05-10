@@ -2,17 +2,9 @@ package com.adem.Views;
 
 import com.adem.App.InputUtil;
 import com.adem.Commander.*;
-import com.adem.Controller.Controller;
 import com.adem.Controller.UserManager;
 import com.adem.Controller.Window;
 import com.adem.Entities.User;
-import com.adem.Entities.UserProperties;
-import com.adem.Models.UserDAO;
-
-import java.util.List;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class MainMenu implements Window {
 
@@ -37,7 +29,8 @@ public class MainMenu implements Window {
                     "\n5.List my contacts" +
                     "\n6.Add contact to my contacts" +
                     "\n7.Remove contact from my contacts" +
-                    "\n8.Log out");
+                    "\n8.Search a contact by name" +
+                    "\n9.Log Out");
             int choice = input.getInt();
             while (choice < 1 | choice > 8) {
                 choice = input.getInt();
@@ -73,6 +66,10 @@ public class MainMenu implements Window {
                     invoker.execute();
                     break;
                 case 8:
+                    invoker = new Invoker(new GetInfoByNameCommand());
+                    invoker.execute();
+                    break;
+                case 9:
                     invoker = new Invoker(new LogoutCommand());
                     invoker.execute();
                     break;

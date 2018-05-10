@@ -1,17 +1,9 @@
 package com.adem.Views;
 
-import java.util.List;
-import java.util.Scanner;
 
 import com.adem.App.InputUtil;
-import com.adem.Commander.Invoker;
-import com.adem.Commander.LoginCommand;
-import com.adem.Commander.RegisterCommand;
-import com.adem.Controller.Controller;
+import com.adem.Commander.*;
 import com.adem.Controller.Window;
-import com.adem.Entities.User;
-import com.adem.Entities.UserProperties;
-import com.adem.Models.UserDAO;
 
 
 public class Login implements Window {

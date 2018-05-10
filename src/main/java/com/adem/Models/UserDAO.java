@@ -1,13 +1,12 @@
 package com.adem.Models;
 
-import com.adem.Entities.User;
 import com.adem.Entities.UserProperties;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class UserDAO implements DAO {
@@ -122,7 +121,7 @@ public class UserDAO implements DAO {
     }
 
     public List<UserProperties> getAllUsers() {
-        List<UserProperties> list = new ArrayList<>();
+        List<UserProperties> list = new LinkedList<>();
         String query = "SELECT * FROM users";
         try(
                 Statement stmt = conn.createStatement();

@@ -2,7 +2,6 @@ package com.adem.Entities;
 
 import com.adem.Models.UserDAO;
 
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

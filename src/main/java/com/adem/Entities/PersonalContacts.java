@@ -2,12 +2,13 @@ package com.adem.Entities;
 
 import com.adem.Models.UserDAO;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class PersonalContacts {
 
     private UserDAO userDAO = new UserDAO();
-    private ArrayList<UserProperties> list = new ArrayList<>();
+    private List<UserProperties> list = new LinkedList<>();
     private String stringVersion;
 
     public PersonalContacts(){ }
@@ -34,7 +35,7 @@ public class PersonalContacts {
         }
     }
 
-    public ArrayList<UserProperties> getList() {
+    public List<UserProperties> getList() {
         initList();
         return list;
     }
